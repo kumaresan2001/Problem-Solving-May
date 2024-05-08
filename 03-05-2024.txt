@@ -1,0 +1,97 @@
+Session 1: Problem Solving Introduction
+   - Topics: Problem Solving, Time Complexity, Space Complexity 
+   - Problems: 
+
+1) Explain the concept of prime numbers and write a function to check if a given number is prime.
+function isPrime(num) {
+    let count = 0;
+    for (let fact = 2; fact < num; fact++) {
+        count++;
+        if(num % fact == 0) {
+            return [count , false]
+        }
+    }
+    return [count, true]
+}
+
+console.log(isPrime(101))
+console.log(isPrime(102))
+====================================================================================================================
+2) Write a function to find the largest element in an array. 
+Answer:
+function largestElem(arr){
+if(arr.length===0){return "empty arr"}
+
+let largest=arr[0]
+for(let i=0;i<arr.length;i++){
+if(arr[i]>largest)
+largest=arr[i]
+}
+return largest
+
+}
+const result=largestElem([10,400,500,700,2,5,3,8])
+console.log(result)
+=====================================================================================================================
+3) Write a function to find the second largest element in an array. 
+Answer:
+let arr = [3, 3]//[3, 43, 5, 546, 456, 24, 23, 545, 757, 789, 7, 7, 1045, 345, 3456, 65, 876, 84, 6, 345, 975];
+
+// O(n)
+let max = arr[0];
+let secondMax = -Infinity;
+if (arr.length < 2) {
+    console.log(undefined)
+} else {
+    for (let ind = 1; ind < arr.length; ind++) {
+        if (max < arr[ind]) {
+            secondMax = max;
+            max = arr[ind];
+        }
+        if (max != arr[ind] && secondMax < arr[ind])
+            secondMax = arr[ind]
+    }
+
+    console.log(max, secondMax === -Infinity ? "No second largest" : secondMax)
+}
+======================================================================================================================
+4) Write a function to find the nth Fibonacci number using iteration.
+
+Answer:
+Fn=Fn-1+Fn-2
+
+function fibonacci(n){
+  if(n === 0) return 0;
+  if (n === 1) return 1;
+  
+  let pre = 0;
+  let curr = 1;
+  for(let i = 2; i <= n; i++){
+    let next = pre + curr;
+    pre = curr;
+    curr = next;
+  }
+  return curr;
+}
+
+const result = fibonacci(10);
+console.log(result); // Output: 55
+======================================================================================================================================
+5)Write a function to calculate the factorial of a number using iteration.
+Answer:
+// ? What is a factorial?
+// factorial(0) => 1
+// factorial(1) => 1 
+// factorial(2) => 2 * 1 => 2 * factorial(1)
+// factorial(3) => 3 * 2 * 1 => 3 * factorial(2)
+// factorial(4) => 4 * 3 * 2 * 1 => 4 * factorial(3)
+// factorial(5) => 5 * 4 * 3 * 2 * 1 => 5 * factorial(4)
+// factorial(6) => 6 * 5 * 4 * 3 * 2 * 1 => 6 * factorial(5)
+
+function factorial(num) {
+  if (num < 2) return 1;
+  return num * factorial(num - 1);
+}
+
+const result = factorial(5);
+console.log(result); // Output: 120
